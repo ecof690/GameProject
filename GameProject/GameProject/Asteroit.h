@@ -1,6 +1,9 @@
 #pragma once
 
+//Headers..
 #include <iostream>
+#include <string>
+#include "rlutil.h"
 
 using namespace std;
 
@@ -10,7 +13,7 @@ protected:
 	double speed;
 public:
 	Asteroit();
-
+	virtual void color(string);
 
 
 };
