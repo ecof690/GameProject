@@ -143,7 +143,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Asteroit.cpp" />
     <ClCompile Include="World_Defender.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\..\Desktop\CENG\3 Third semester\Ceng-241\Game Project\rlutil_vs2015\rlutil.h" />
+    <ClInclude Include="Asteroit.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
