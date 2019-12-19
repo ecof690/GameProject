@@ -11,9 +11,9 @@ class Asteroit {
 protected:
 	int health;
 	double speed;
+	int* calculater(int);
 public:
 	Asteroit();
-	virtual void color(string);
-
+	virtual void print(int);
 
 };
