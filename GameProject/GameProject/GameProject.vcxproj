@@ -144,18 +144,29 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Asteroit.cpp" />
+    <ClCompile Include="Gun.cpp" />
+    <ClCompile Include="Large_ast.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Medium_ast.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Mortar.cpp" />
+    <ClCompile Include="Small_ast.cpp" />
+    <ClCompile Include="SpaceShip.cpp" />
+    <ClCompile Include="Turret.cpp" />
     <ClCompile Include="World_Defender.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Asteroit.h" />
+    <ClInclude Include="Gun.h" />
     <ClInclude Include="Large_ast.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Medium_ast.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Mortar.h" />
     <ClInclude Include="rlutil.h" />
     <ClInclude Include="Small_ast.h" />
+    <ClInclude Include="SpaceShip.h" />
+    <ClInclude Include="Turret.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -3,10 +3,10 @@
 
 //Headers..
 #include "Menu.h"
-
+#include <time.h>
 
 int main() {
-
+	srand(time(0));
 	Menu m;
 	m.menu();
 

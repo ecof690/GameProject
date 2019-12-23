@@ -9,11 +9,11 @@ using namespace std;
 
 class Asteroit {
 protected:
-	int health;
+	int health, x_cor, y_cor;
 	double speed;
-	int* calculater(int);
 public:
 	Asteroit();
-	virtual void print(int);
-
+	int* getCoordinates(void);
+	virtual void calculater(void);
+	virtual void print(void) = 0;
 };
