@@ -20,7 +20,7 @@ public:
 	void print();
 	void setWalls();
 	int hitWall(int, int);
-	int hitAsteroid(Large_ast& a);
+	int hitAsteroid(Asteroit&, int, int);
 private:
 	int row;
 	int col;

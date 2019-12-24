@@ -15,5 +15,5 @@ public:
 	Asteroit();
 	int* getCoordinates(void);
 	virtual void calculater(void);
-	virtual void print(void) = 0;
+	virtual void print()=0;
 };

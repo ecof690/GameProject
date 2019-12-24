@@ -11,7 +11,7 @@ void Map::print() {
 	int mlocx, mlocy, fuel, armor, coin;
 	int x = 70;  //Set SpaceShip' x coordinate
 	int y = 15;  //Set SpaceShip' y coordinate
-	
+
 	//For creating random number of Asteroids.
 	int num0, num1, num2, i_c;
 	num0 = rand() % 20;
@@ -22,24 +22,24 @@ void Map::print() {
 	setWalls(); // print Map's walls
 
 	//Creating part for Asteroids.
-	Large_ast *L = new Large_ast[num0];
-	Medium_ast *M = new Medium_ast[num1];
-	Small_ast *S = new Small_ast[num2];
+	Asteroit *A[90];
 	for (i_c = 0; i_c < num0; i_c++) {
-		L[i_c].calculater();
-		L[i_c].print();
+		A[i_c] = new Large_ast();
+		A[i_c]->calculater();
+		A[i_c]->print();
 	}//End of first for loop.
-	for (i_c = 0; i_c < num1; i_c++) {
-		M[i_c].calculater();
-		M[i_c].print();
+	for (i_c = num0; i_c < (num0 + num1); i_c++) {
+		A[i_c] = new Medium_ast();
+		A[i_c]->calculater();
+		A[i_c]->print();
 	}//End of second for loop.
-	for (i_c = 0; i_c < num2; i_c++) {
-		S[i_c].calculater();
-		S[i_c].print();
+	for (i_c = num1; i_c < (num0 + num1 + num2); i_c++) {
+		A[i_c] = new Small_ast();
+		A[i_c]->calculater();
+		A[i_c]->print();
 	}//End of third for loop.
 	//..
 
-	//i_c=hitAsteroid(*L);  ->SORULACAK
 
 	fuel = vu.getFuel();
 	armor = vu.getArmor();
@@ -52,7 +52,7 @@ void Map::print() {
 	Turret g;
 	Mortar mor;
 	Menu menu;
-	int j, hit = -1, rad, i, morx, mory;
+	int collision, j, hit = -1, rad, i, morx, mory;
 
 	gotoxy(x, y); rlutil::setColor(2);  cout << '^' << endl; // Show player
 	while (true) {
@@ -64,12 +64,19 @@ void Map::print() {
 			if (k == rlutil::KEY_LEFT) {
 				--x; gotoxy(x, y); rlutil::setColor(2);  cout << '<'; rlutil::setColor(7); fuel--;  rlutil::locate(45, 30); cout << "Fuel : " << fuel << " "; j = k;
 				rlutil::locate(60, 30); cout << "Armor:" << armor << " ";
+				for (i_c = 0; i_c <(num0 + num1 + num2); i_c++) {
+					collision = hitAsteroid(*A[i_c], x, y);
+					if (collision == -1) {
+						armor -= 10;
+						vu.setArmor(armor);
+						cout << endl << "mu birader";
+						rlutil::locate(60, 30); cout << "Armor:" << armor << " ";
+					}
+				}
 				hit = hitWall(x, y);
 				if (hit != -1)
 					x = hit;
 			}
-
-
 			else if (k == rlutil::KEY_RIGHT) {
 				++x; rad = 0; gotoxy(x, y); rlutil::setColor(2);  cout << '>'; rlutil::setColor(7); fuel--; rlutil::locate(45, 30); cout << "Fuel : " << fuel << " "; j = k;
 				rlutil::locate(60, 30); cout << "Armor:" << armor << " ";
@@ -77,8 +84,6 @@ void Map::print() {
 				if (hit != -1)
 					x = hit;
 			}  // Turn Right
-
-
 			else if (k == rlutil::KEY_UP) {
 				--y;  gotoxy(x, y); rlutil::setColor(2);  cout << '^'; rlutil::setColor(7); fuel--; rlutil::locate(45, 30); cout << "Fuel : " << fuel << " "; j = k;
 				rlutil::locate(60, 30); cout << "Armor:" << armor << " ";
@@ -86,9 +91,6 @@ void Map::print() {
 				if (hit != -1)
 					y = hit;
 			}
-
-
-
 			else if (k == rlutil::KEY_DOWN) {
 				++y; gotoxy(x, y);
 				rlutil::setColor(2);
@@ -103,8 +105,6 @@ void Map::print() {
 					y = hit;
 
 			}
-
-
 			else 	if (k == rlutil::KEY_SPACE) { // Space to fire
 				g.fire(j, x, y);
 			}
@@ -258,16 +258,14 @@ int Map::hitWall(int x, int y) {
 }
 
 
-//sorulacak
-/*
-int Map::hitAsteroid(Large_ast& a) {
+
+int Map::hitAsteroid(Asteroit& a, int x, int y) {
 	int *arr;
 	arr = a.getCoordinates();
-	cout << arr[0] << arr[1] << "first" << endl;
-	arr = a.getCoordinates();
-	cout << arr[0] << arr[1] << "sec" << endl;
-
-
-	return 0;
+	if (arr[0] == x && arr[1] == y) {
+		cout << endl << "ali";
+		return -1;
+	}
+	else
+		return 0;
 }
-*/
