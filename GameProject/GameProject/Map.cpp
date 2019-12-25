@@ -33,7 +33,7 @@ void Map::print() {
 		A[i_c]->calculater();
 		A[i_c]->print();
 	}//End of second for loop.
-	for (i_c = num0+num1; i_c < (num0 + num1 + num2); i_c++) {
+	for (i_c = num0 + num1; i_c < (num0 + num1 + num2); i_c++) {
 		A[i_c] = new Small_ast();
 		A[i_c]->calculater();
 		A[i_c]->print();
@@ -64,7 +64,7 @@ void Map::print() {
 			if (k == rlutil::KEY_LEFT) {
 				--x; gotoxy(x, y); rlutil::setColor(2);  cout << '<'; rlutil::setColor(7); fuel--;  rlutil::locate(45, 30); cout << "Fuel : " << fuel << " "; j = k;
 				rlutil::locate(60, 30); cout << "Armor : " << armor << " ";
-				for (i_c = 0; i_c <(num0 + num1 + num2); i_c++) {
+				for (i_c = 0; i_c < (num0 + num1 + num2); i_c++) {
 					collision = hitAsteroid(*A[i_c], x, y);
 					if (collision == -1) {
 						armor -= 10;
@@ -79,6 +79,14 @@ void Map::print() {
 			else if (k == rlutil::KEY_RIGHT) {
 				++x; rad = 0; gotoxy(x, y); rlutil::setColor(2);  cout << '>'; rlutil::setColor(7); fuel--; rlutil::locate(45, 30); cout << "Fuel : " << fuel << " "; j = k;
 				rlutil::locate(60, 30); cout << "Armor : " << armor << " ";
+				for (i_c = 0; i_c < (num0 + num1 + num2); i_c++) {
+					collision = hitAsteroid(*A[i_c], x, y);
+					if (collision == -1) {
+						armor -= 10;
+						vu.setArmor(armor);
+						rlutil::locate(60, 30); cout << "Armor : " << armor << " ";
+					}
+				}
 				hit = hitWall(x, y);
 				if (hit != -1)
 					x = hit;
@@ -86,6 +94,14 @@ void Map::print() {
 			else if (k == rlutil::KEY_UP) {
 				--y;  gotoxy(x, y); rlutil::setColor(2);  cout << '^'; rlutil::setColor(7); fuel--; rlutil::locate(45, 30); cout << "Fuel : " << fuel << " "; j = k;
 				rlutil::locate(60, 30); cout << "Armor : " << armor << " ";
+				for (i_c = 0; i_c < (num0 + num1 + num2); i_c++) {
+					collision = hitAsteroid(*A[i_c], x, y);
+					if (collision == -1) {
+						armor -= 10;
+						vu.setArmor(armor);
+						rlutil::locate(60, 30); cout << "Armor : " << armor << " ";
+					}
+				}
 				hit = hitWall(x, y);
 				if (hit != -1)
 					y = hit;
@@ -99,6 +115,14 @@ void Map::print() {
 				rlutil::locate(45, 30);
 				cout << "Fuel : " << fuel << " "; j = k;
 				rlutil::locate(60, 30); cout << "Armor : " << armor << " ";  //show the armor amount
+				for (i_c = 0; i_c < (num0 + num1 + num2); i_c++) {
+					collision = hitAsteroid(*A[i_c], x, y);
+					if (collision == -1) {
+						armor -= 10;
+						vu.setArmor(armor);
+						rlutil::locate(60, 30); cout << "Armor : " << armor << " ";
+					}
+				}
 				hit = hitWall(x, y);
 				if (hit != -1)
 					y = hit;
@@ -133,9 +157,6 @@ void Map::print() {
 		} // end of kbhit if
 
 	} // end of while 
-
-
-
 
 }
 
@@ -187,10 +208,6 @@ int Map::hitWall(int x, int y) {
 		}
 		return(y);
 	}
-
-
-
-
 	else if (y == 29) {
 		// If Space ship hit the wall decrease armor
 		armor = vu.getArmor();
@@ -210,7 +227,6 @@ int Map::hitWall(int x, int y) {
 		}
 		return(y);
 	}
-
 	else if (x == 1) {
 		// If Space ship hit the wall decrease armor
 		armor = vu.getArmor();
@@ -230,8 +246,6 @@ int Map::hitWall(int x, int y) {
 		}
 		return(x);
 	}
-
-
 	else if (x == 118) {
 		// If Space ship hit the wall decrease armor
 		armor = vu.getArmor();
