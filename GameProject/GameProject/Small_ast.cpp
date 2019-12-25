@@ -2,6 +2,7 @@
 
 Small_ast::Small_ast() {
 	health = 10;
+	damage = 10;
 	speed = 0;
 }//End of constructor.
 

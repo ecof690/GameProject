@@ -2,6 +2,7 @@
 
 Medium_ast::Medium_ast(){
 	health = 20;
+	damage = 20;
 	speed = 0;
 }
 

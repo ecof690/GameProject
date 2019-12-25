@@ -2,6 +2,7 @@
 
 Large_ast::Large_ast(){
 	health = 30;
+	damage = 30;
 	speed = 0;
 }
 

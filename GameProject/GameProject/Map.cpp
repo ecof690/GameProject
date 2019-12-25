@@ -66,8 +66,8 @@ void Map::print() {
 				rlutil::locate(60, 30); cout << "Armor : " << armor << " ";
 				for (i_c = 0; i_c < (num0 + num1 + num2); i_c++) {
 					collision = hitAsteroid(*A[i_c], x, y);
-					if (collision == -1) {
-						armor -= 10;
+					if (collision != 0) {
+						armor -= collision;
 						vu.setArmor(armor);
 						rlutil::locate(60, 30); cout << "Armor : " << armor << " ";
 					}
@@ -81,8 +81,8 @@ void Map::print() {
 				rlutil::locate(60, 30); cout << "Armor : " << armor << " ";
 				for (i_c = 0; i_c < (num0 + num1 + num2); i_c++) {
 					collision = hitAsteroid(*A[i_c], x, y);
-					if (collision == -1) {
-						armor -= 10;
+					if (collision != 0) {
+						armor -= collision;
 						vu.setArmor(armor);
 						rlutil::locate(60, 30); cout << "Armor : " << armor << " ";
 					}
@@ -96,8 +96,8 @@ void Map::print() {
 				rlutil::locate(60, 30); cout << "Armor : " << armor << " ";
 				for (i_c = 0; i_c < (num0 + num1 + num2); i_c++) {
 					collision = hitAsteroid(*A[i_c], x, y);
-					if (collision == -1) {
-						armor -= 10;
+					if (collision != 0) {
+						armor -= collision;
 						vu.setArmor(armor);
 						rlutil::locate(60, 30); cout << "Armor : " << armor << " ";
 					}
@@ -117,8 +117,8 @@ void Map::print() {
 				rlutil::locate(60, 30); cout << "Armor : " << armor << " ";  //show the armor amount
 				for (i_c = 0; i_c < (num0 + num1 + num2); i_c++) {
 					collision = hitAsteroid(*A[i_c], x, y);
-					if (collision == -1) {
-						armor -= 10;
+					if (collision != 0) {
+						armor -= collision;
 						vu.setArmor(armor);
 						rlutil::locate(60, 30); cout << "Armor : " << armor << " ";
 					}
@@ -143,9 +143,20 @@ void Map::print() {
 			else if (k == rlutil::KEY_ESCAPE) { rlutil::locate(76, 30); cout << "Thanks for playing!!"; menu.menu(); } // End of the game
 
 
-			if (fuel == 0) { // check fuel out or not.
-				for (i = 0; i < 4; i++) {          // Radiation warning
+			if (fuel <= 0) { // Fuel checking statement.
+				for (i = 0; i < 4; i++) {
 					rlutil::locate(80, 30); rlutil::setColor(4); cout << "!! OUT OF FUEL !!"; rlutil::setColor(7);
+					rlutil::msleep(500);
+					rlutil::locate(70, 30); cout << "                                               ";
+					rlutil::msleep(500);
+				}
+				cout << endl;
+				break;
+			}
+
+			if (armor <= 0) { // Armor checking statement.
+				for (i = 0; i < 4; i++) {
+					rlutil::locate(80, 30); rlutil::setColor(4); cout << "!! You have been DESTROYED !!"; rlutil::setColor(7);
 					rlutil::msleep(500);
 					rlutil::locate(70, 30); cout << "                                               ";
 					rlutil::msleep(500);
@@ -261,22 +272,21 @@ int Map::hitWall(int x, int y) {
 			rlutil::msleep(500);
 			rlutil::locate(70, 30); cout << "                                               ";
 			rlutil::msleep(500);
-
 		}
 		return(x);
 	}
 	else
 		return(-1);
-
 }
 
 
 
 int Map::hitAsteroid(Asteroit& a, int x, int y) {
-	int *arr;
+	int *arr, ast_damage;
 	arr = a.getCoordinates();
 	if (arr[0] == x && arr[1] == y) {
-		return -1;
+		ast_damage = a.getDamage();
+		return ast_damage;
 	}
 	else
 		return 0;
