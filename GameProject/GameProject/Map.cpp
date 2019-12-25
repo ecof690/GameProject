@@ -33,7 +33,7 @@ void Map::print() {
 		A[i_c]->calculater();
 		A[i_c]->print();
 	}//End of second for loop.
-	for (i_c = num1; i_c < (num0 + num1 + num2); i_c++) {
+	for (i_c = num0+num1; i_c < (num0 + num1 + num2); i_c++) {
 		A[i_c] = new Small_ast();
 		A[i_c]->calculater();
 		A[i_c]->print();
@@ -63,14 +63,13 @@ void Map::print() {
 
 			if (k == rlutil::KEY_LEFT) {
 				--x; gotoxy(x, y); rlutil::setColor(2);  cout << '<'; rlutil::setColor(7); fuel--;  rlutil::locate(45, 30); cout << "Fuel : " << fuel << " "; j = k;
-				rlutil::locate(60, 30); cout << "Armor:" << armor << " ";
+				rlutil::locate(60, 30); cout << "Armor : " << armor << " ";
 				for (i_c = 0; i_c <(num0 + num1 + num2); i_c++) {
 					collision = hitAsteroid(*A[i_c], x, y);
 					if (collision == -1) {
 						armor -= 10;
 						vu.setArmor(armor);
-						cout << endl << "mu birader";
-						rlutil::locate(60, 30); cout << "Armor:" << armor << " ";
+						rlutil::locate(60, 30); cout << "Armor : " << armor << " ";
 					}
 				}
 				hit = hitWall(x, y);
@@ -79,14 +78,14 @@ void Map::print() {
 			}
 			else if (k == rlutil::KEY_RIGHT) {
 				++x; rad = 0; gotoxy(x, y); rlutil::setColor(2);  cout << '>'; rlutil::setColor(7); fuel--; rlutil::locate(45, 30); cout << "Fuel : " << fuel << " "; j = k;
-				rlutil::locate(60, 30); cout << "Armor:" << armor << " ";
+				rlutil::locate(60, 30); cout << "Armor : " << armor << " ";
 				hit = hitWall(x, y);
 				if (hit != -1)
 					x = hit;
 			}  // Turn Right
 			else if (k == rlutil::KEY_UP) {
 				--y;  gotoxy(x, y); rlutil::setColor(2);  cout << '^'; rlutil::setColor(7); fuel--; rlutil::locate(45, 30); cout << "Fuel : " << fuel << " "; j = k;
-				rlutil::locate(60, 30); cout << "Armor:" << armor << " ";
+				rlutil::locate(60, 30); cout << "Armor : " << armor << " ";
 				hit = hitWall(x, y);
 				if (hit != -1)
 					y = hit;
@@ -99,7 +98,7 @@ void Map::print() {
 				fuel--;
 				rlutil::locate(45, 30);
 				cout << "Fuel : " << fuel << " "; j = k;
-				rlutil::locate(60, 30); cout << "Armor:" << armor << " ";  //show the armor amount
+				rlutil::locate(60, 30); cout << "Armor : " << armor << " ";  //show the armor amount
 				hit = hitWall(x, y);
 				if (hit != -1)
 					y = hit;
@@ -263,7 +262,6 @@ int Map::hitAsteroid(Asteroit& a, int x, int y) {
 	int *arr;
 	arr = a.getCoordinates();
 	if (arr[0] == x && arr[1] == y) {
-		cout << endl << "ali";
 		return -1;
 	}
 	else
