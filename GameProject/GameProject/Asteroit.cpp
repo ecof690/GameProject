@@ -27,3 +27,7 @@ int * Asteroit::getCoordinates(void) {
 	return arr;
 }//End of method.
 	
+void Asteroit::setCor(int x , int y){
+	x_cor=x;
+	y_cor=y;
+}
