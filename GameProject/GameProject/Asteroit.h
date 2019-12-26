@@ -17,4 +17,5 @@ public:
 	int* getCoordinates(void);
 	virtual void calculater(void);
 	virtual void print()=0;
+	void setCor(int,int);
 };
