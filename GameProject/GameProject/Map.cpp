@@ -1,4 +1,4 @@
-ï»¿#include "Map.h"
+#include "Map.h"
 
 SpaceShip vu;
 
