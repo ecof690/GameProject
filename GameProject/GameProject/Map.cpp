@@ -1,4 +1,4 @@
-﻿#include "Map.h"
+ï»¿#include "Map.h"
 
 SpaceShip vu;
 
@@ -53,6 +53,8 @@ void Map::print() {
 	Mortar mor;
 	Menu menu;
 	int collision, j, hit = -1, rad, i, morx, mory;
+				int methel=0;
+
 
 	gotoxy(x, y); rlutil::setColor(2);  cout << '^' << endl; // Show player
 	while (true) {
@@ -129,7 +131,10 @@ void Map::print() {
 
 			}
 			else 	if (k == rlutil::KEY_SPACE) { // Space to fire
+				//methel=g.hitAsteroit(j,x,y,*A[i_c]);
 				g.fire(j, x, y);
+				if(methel == -1)
+					cout << "Bum Bum";
 			}
 			else     if (k == rlutil::KEY_ENTER) { // activate mortar
 				rlutil::locate(70, 30);
@@ -286,6 +291,7 @@ int Map::hitAsteroid(Asteroit& a, int x, int y) {
 	arr = a.getCoordinates();
 	if (arr[0] == x && arr[1] == y) {
 		ast_damage = a.getDamage();
+		a.setCor(-1,-1);
 		return ast_damage;
 	}
 	else
