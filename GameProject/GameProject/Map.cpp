@@ -161,12 +161,14 @@ void Map::print() {
 
 			if (armor <= 0) { // Armor checking statement.
 				for (i = 0; i < 4; i++) {
+					rlutil::locate(60, 30); cout << "Armor : " << "0" << " ";
 					rlutil::locate(80, 30); rlutil::setColor(4); cout << "!! You have been DESTROYED !!"; rlutil::setColor(7);
 					rlutil::msleep(500);
 					rlutil::locate(70, 30); cout << "                                               ";
 					rlutil::msleep(500);
 				}
 				cout << endl;
+				rlutil::cls();
 				break;
 			}
 
