@@ -24,6 +24,7 @@ public:
 private:
 	int row;
 	int col;
+	int score;
 };
 
 
