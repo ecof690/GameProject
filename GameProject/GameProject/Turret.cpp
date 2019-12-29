@@ -1,6 +1,5 @@
 #include "Turret.h"
 
-Turret ss;
 
 Turret::Turret() {
 	dist = 10;  // fire distance
@@ -109,5 +108,79 @@ int Turret::hitWall(int x, int y) {
 	}
 	else
 		return(-1);
+
+}
+
+int Turret::hitAsteroit(int j ,int x ,int y,Asteroit& a){  //control the gun hit the asteriot
+
+	int i = 0, ax, ay, hit = -1;
+
+	int *arr;
+	
+
+	
+
+	if (j == rlutil::KEY_LEFT) {  // If spaceship going left fire to the left.
+		rlutil::hidecursor();
+		while (true) {
+			ax = x - i;
+			ay = y;
+			arr = a.getCoordinates();
+			if (i == dist)
+				break;
+			if (arr[0] == ax && arr[1] == ay) {
+				a.setCor(-1,-1);
+				return -1;
+			}
+			i++;
+		}
+	}
+	else if (j == rlutil::KEY_RIGHT) { // If spaceship going right fire to the left.
+		rlutil::hidecursor();
+		while (true) {
+			ax = x + i;
+			ay = y;
+			arr = a.getCoordinates();
+			if (i == dist)
+				break;
+			if (arr[0] == ax && arr[1] == ay) {
+				a.setCor(-1,-1);
+				return -1;
+			}
+			i++;
+		}
+	}
+	else if (j == rlutil::KEY_UP) { // If spaceship going up fire to the left.
+		rlutil::hidecursor();
+		while (true) {
+			ax = x;
+			ay = y-i;
+			arr = a.getCoordinates();
+			if (i == dist)
+				break;
+			if (arr[0] == ax && arr[1] == ay) {
+				a.setCor(-1,-1);
+				return -1;
+			}
+			i++;
+		}
+	}
+	else if (j == rlutil::KEY_DOWN) { // If spaceship going down fire to the left.
+		rlutil::hidecursor();
+		while (true) {
+			ax = x;
+			ay = y+i;
+			arr = a.getCoordinates();
+			if (i == dist)
+				break;
+			if (arr[0] == ax && arr[1] == ay) {
+				a.setCor(-1,-1);
+				return -1;
+			}
+			i++;
+		}
+	}
+	
+
 
 }
