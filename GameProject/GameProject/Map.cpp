@@ -5,6 +5,7 @@ SpaceShip vu;
 Map::Map() {  //Set map's row and coluom
 	row = 120;
 	col = 30;
+	score=0;
 }
 
 void Map::print() {
@@ -41,6 +42,8 @@ void Map::print() {
 	//..
 
 
+        vu.setFuel(100);
+	vu.setArmor(100);
 	fuel = vu.getFuel();
 	armor = vu.getArmor();
 	coin = vu.getCoin();
@@ -131,10 +134,15 @@ void Map::print() {
 
 			}
 			else 	if (k == rlutil::KEY_SPACE) { // Space to fire
-				//methel=g.hitAsteroit(j,x,y,*A[i_c]);
+				int didhit;
+				for (i_c = 0; i_c < (num0 + num1 + num2); i_c++) {
+					didhit =g.hitAsteroit (j,x,y,*A[i_c]);
+					if(didhit==-1)
+						score+=10;
+				}
+				rlutil::locate(100,30);
+				cout << "Score: " << score;
 				g.fire(j, x, y);
-				if(methel == -1)
-					cout << "Bum Bum";
 			}
 			else     if (k == rlutil::KEY_ENTER) { // activate mortar
 				rlutil::locate(70, 30);
@@ -155,7 +163,14 @@ void Map::print() {
 					rlutil::locate(70, 30); cout << "                                               ";
 					rlutil::msleep(500);
 				}
-				cout << endl;
+				rlutil::cls();
+				rlutil::locate(45,15);
+				cout << "Your score is: " << score <<endl;
+				rlutil::setColor(2);
+				rlutil::locate(75,27);
+				cout << "Wait! You will automaticly direct to menu." <<endl;
+				rlutil::setColor(7);
+				rlutil::msleep(5000);
 				break;
 			}
 
@@ -167,8 +182,14 @@ void Map::print() {
 					rlutil::locate(70, 30); cout << "                                               ";
 					rlutil::msleep(500);
 				}
-				cout << endl;
 				rlutil::cls();
+				rlutil::locate(45,15);
+				cout << "Your score is: " << score <<endl;
+				rlutil::setColor(2);
+				rlutil::locate(75,27);
+				cout << "Wait! You will automaticly direct to menu." <<endl;
+				rlutil::setColor(7);
+				rlutil::msleep(5000);
 				break;
 			}
 
