@@ -235,9 +235,16 @@ void Menu::menu() {
 		int choose=0,key;
 		rlutil::hidecursor();
 		rlutil::cls();
+		rlutil::setColor(2);
 		rlutil::locate(50,10); cout << "Play"<<endl;
+		rlutil::setColor(6);
 		rlutil::locate(50,12); cout << "About"<<endl;
+		rlutil::setColor(4);
 		rlutil::locate(50,14); cout << "Exit"<<endl;
+		rlutil::setColor(8);
+		rlutil::locate(20, 24);
+		cout << "Use arrow keys, and press enter to choice." << endl;
+		rlutil::setColor(7);
 		while (true) {  // Main menu while
 			key = rlutil::getkey();
 			if(key == rlutil::KEY_DOWN){ // Move in main menu
@@ -256,26 +263,35 @@ void Menu::menu() {
 
 
 			if(choose==1){ // If choose is Play set background
+				rlutil::setColor(2);
 				rlutil::setBackgroundColor(4);
 				rlutil::locate(50,10);  cout << "Play";
+				rlutil::setColor(6);
 				rlutil::setBackgroundColor(0);
 				rlutil::locate(50,12);  cout << "About";
+				rlutil::setColor(4);
 				rlutil::setBackgroundColor(0);
 				rlutil::locate(50,14);  cout << "Exit";
 			}
 			if(choose==2){ // If choose is About set background
+				rlutil::setColor(2);
 				rlutil::setBackgroundColor(0);
 				rlutil::locate(50,10);  cout << "Play";
+				rlutil::setColor(6);
 				rlutil::setBackgroundColor(4);
 				rlutil::locate(50,12);  cout << "About";
+				rlutil::setColor(4);
 				rlutil::setBackgroundColor(0);
 				rlutil::locate(50,14);  cout << "Exit";
 			}
 			if(choose==3){  // If choose is Exit set background
+				rlutil::setColor(2);
 				rlutil::setBackgroundColor(0);
 				rlutil::locate(50,10);  cout << "Play";
+				rlutil::setColor(6);
 				rlutil::setBackgroundColor(0);
 				rlutil::locate(50,12);  cout << "About";
+				rlutil::setColor(4);
 				rlutil::setBackgroundColor(4);
 				rlutil::locate(50,14);  cout << "Exit";
 			}

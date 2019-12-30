@@ -168,12 +168,12 @@ void Map::print() {
 				cout << "Your score is: " << score <<endl;
 				rlutil::setColor(2);
 				rlutil::locate(75,27);
-				cout << "Wait! You will automaticly direct to menu." <<endl;
+				cout << "Wait! You will automatically direct to menu." <<endl;
 				rlutil::setColor(7);
 				rlutil::msleep(5000);
 				break;
 			}
-
+			
 			if (armor <= 0) { // Armor checking statement.
 				for (i = 0; i < 4; i++) {
 					rlutil::locate(60, 30); cout << "Armor : " << "0" << " ";
