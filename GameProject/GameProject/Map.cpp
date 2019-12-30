@@ -223,7 +223,7 @@ void Map::print() {
 				mor.setLoc(morx, mory);
 				mor.fire(j, morx, mory);
 			}
-			else if (k == rlutil::KEY_ESCAPE) { rlutil::locate(76, 30); cout << "Thanks for playing!!"; menu.menu(); } // End of the game
+			else if (k == rlutil::KEY_ESCAPE) { rlutil::locate(76, 30); cout << "Thanks for playing!!"; break; menu.menu(); } // End of the game
 
 
 			if (fuel <= 0) { // Fuel checking statement.
