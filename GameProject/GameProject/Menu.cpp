@@ -6,7 +6,7 @@
 
 
 void Menu::menu() {
-	int choice = 0, choice_gamemode;
+	int choice=0, choice_gamemode;
 	bool test = true;
 
 	rlutil::setConsoleTitle("World Defender");
@@ -230,16 +230,16 @@ void Menu::menu() {
 	rlutil::setColor(7);
 
 	rlutil::cls();
-	while (true) {    // Menu while
+	while(true){    // Menu while
 		rlutil::showcursor();
-		int choose = 0, key;
+		int choose=0,key;
 		rlutil::hidecursor();
 		rlutil::cls();
 		rlutil::setColor(2);
 		rlutil::locate(50, 10); cout << "Play" << endl;
 		rlutil::setColor(6);
 		rlutil::locate(50, 12); cout << "About" << endl;
-		rlutil::setColor(4);
+		rlutil::setColor(5);
 		rlutil::locate(50, 14); cout << "Exit" << endl;
 		rlutil::setColor(8);
 		rlutil::locate(30, 24);
@@ -247,126 +247,132 @@ void Menu::menu() {
 		rlutil::setColor(7);
 		while (true) {  // Main menu while
 			key = rlutil::getkey();
-			if (key == rlutil::KEY_DOWN) { // Move in main menu
-				choose += 1;
+			if(key == rlutil::KEY_DOWN){ // Move in main menu
+				choose +=1;
 			}
-			else if (key == rlutil::KEY_UP) { // Move in main menu
-				choose -= 1;
+			else if(key==rlutil::KEY_UP){ // Move in main menu
+				choose -=1;
 			}
-			if (key == rlutil::KEY_ENTER) { // Choose the selection
-				choice == choose;
-				cout << choice << endl;
+			if(key==rlutil::KEY_ENTER){ // Choose the selection
+				choice==choose;
 				rlutil::cls();
 				break;
 
 			}
 
 
-			if (choose == 1) { // If choose is Play set background
+			if(choose==1){ // If choose is Play set background
 				rlutil::setColor(2);
 				rlutil::setBackgroundColor(4);
 				rlutil::locate(50, 10);  cout << "Play";
 				rlutil::setColor(6);
 				rlutil::setBackgroundColor(0);
 				rlutil::locate(50, 12);  cout << "About";
-				rlutil::setColor(4);
+				rlutil::setColor(5);
 				rlutil::setBackgroundColor(0);
 				rlutil::locate(50, 14);  cout << "Exit";
+				rlutil::setBackgroundColor(0);
 			}
-			if (choose == 2) { // If choose is About set background
+			if(choose==2){ // If choose is About set background
 				rlutil::setColor(2);
 				rlutil::setBackgroundColor(0);
 				rlutil::locate(50, 10);  cout << "Play";
 				rlutil::setColor(6);
 				rlutil::setBackgroundColor(4);
 				rlutil::locate(50, 12);  cout << "About";
-				rlutil::setColor(4);
+				rlutil::setColor(5);
 				rlutil::setBackgroundColor(0);
 				rlutil::locate(50, 14);  cout << "Exit";
+				rlutil::setBackgroundColor(0);
 			}
-			if (choose == 3) {  // If choose is Exit set background
+			if(choose==3){  // If choose is Exit set background
 				rlutil::setColor(2);
 				rlutil::setBackgroundColor(0);
 				rlutil::locate(50, 10);  cout << "Play";
 				rlutil::setColor(6);
 				rlutil::setBackgroundColor(0);
 				rlutil::locate(50, 12);  cout << "About";
-				rlutil::setColor(4);
+				rlutil::setColor(5);
 				rlutil::setBackgroundColor(4);
 				rlutil::locate(50, 14);  cout << "Exit";
+				rlutil::setBackgroundColor(0);
 			}
-			if (choose <= 0)  // If user try to go down or up in menu set choose 
-				choose = 1;
-			if (choose > 3)
-				choose = 3;
+			if(choose<=0)  // If user try to go down or up in menu set choose 
+				choose=1;
+			if(choose>3)
+				choose=3;
 
-			choice = choose;
+			choice=choose;
 
 		}//End of Main menu while-loop.
 
 
-		if (choice == 1) {  // If user select play , select gamemode
+
+
+		if(choice == 1){  // If user select play , select gamemode
 
 			rlutil::setColor(8);
-			rlutil::locate(50, 10);
+			rlutil::locate(50,10);
 			cout << "Please select a gamemode :" << endl;
 			rlutil::setColor(3);
-			rlutil::locate(50, 12);
+			rlutil::locate(50,12);
 			cout << "Levels" << endl;
 			rlutil::setColor(3);
-			rlutil::locate(50, 14);
+			rlutil::locate(50,14);
 			cout << "Survive Forever !" << endl;
-			choose = 0;
+			choose=0;
 			while (true) { // Gamemode while
 				key = rlutil::getkey();
-				if (key == rlutil::KEY_DOWN) {  // Move in Gamemode menu
-					choose += 1;
+				if(key == rlutil::KEY_DOWN){  // Move in Gamemode menu
+					choose +=1;
 				}
-				else if (key == rlutil::KEY_UP) {  // Move in Gamemode menu
-					choose -= 1;
+				else if(key==rlutil::KEY_UP){  // Move in Gamemode menu
+					choose -=1;
 				}
-				if (key == rlutil::KEY_ENTER) {  // Choose the gamemode
-					choice_gamemode == choose;
+				if(key==rlutil::KEY_ENTER){  // Choose the gamemode
+					choice_gamemode==choose;
 					rlutil::setColor(7);
 					break;
-				}
+				}  
 
-				if (choose == 1) { //If user's choose is gamemode 1
+				if(choose==1){ //If user's choose is gamemode 1
 					rlutil::setBackgroundColor(0);
 					rlutil::setColor(8);
-					rlutil::locate(50, 10);
+					rlutil::locate(50,10);
 					cout << "Please select a gamemode :" << endl;
 					rlutil::setBackgroundColor(4);
 					rlutil::setColor(3);
-					rlutil::locate(50, 12);
+					rlutil::locate(50,12);
 					cout << "Levels" << endl;
 					rlutil::setBackgroundColor(0);
 					rlutil::setColor(3);
-					rlutil::locate(50, 14);
+					rlutil::locate(50,14);
 					cout << "Survive Forever !" << endl;
+					rlutil::setBackgroundColor(0);
 				} // End of gamemode 1 if
 
-				else if (choose == 2) {  // If user's choose is gamemode 2
+				else if(choose==2){  // If user's choose is gamemode 2
 					rlutil::setBackgroundColor(0);
 					rlutil::setColor(8);
-					rlutil::locate(50, 10);
+					rlutil::locate(50,10);
 					cout << "Please select a gamemode :" << endl;
 					rlutil::setBackgroundColor(0);
 					rlutil::setColor(3);
-					rlutil::locate(50, 12);
+					rlutil::locate(50,12);
 					cout << "Levels" << endl;
 					rlutil::setBackgroundColor(4);
 					rlutil::setColor(3);
-					rlutil::locate(50, 14);
-					cout << "Survive Forever !" << endl;
+					rlutil::locate(50,14);
+					cout << "Survive Forever !" << endl;	 
+					rlutil::setBackgroundColor(0);
 				} // end of gamemode2 if
 
-				if (choose <= 0)   // If user try to go down or up in menu set choose 
-					choose = 1;
-				if (choose > 2)
-					choose = 2;
+				if(choose<=0)   // If user try to go down or up in menu set choose 
+					choose=1;   
+				if(choose>2)    
+					choose=2;
 
-				choice_gamemode = choose;  // Set user's choose to gamemode
+				choice_gamemode=choose;  // Set user's choose to gamemode
 
 			}//End of Gamemode while-loop.
 			if (choice_gamemode == 1) { //Gamemode 1
@@ -378,45 +384,46 @@ void Menu::menu() {
 			else if (choice_gamemode == 2) {  // Gamemode 2
 				rlutil::setBackgroundColor(0);
 				rlutil::cls();
-				rlutil::locate(40, 15); rlutil::setColor(4); cout << "It will be added as soon as possible!" << endl; rlutil::setColor(7);
-				rlutil::setColor(2); rlutil::locate(70, 29); cout << "Ana menuye donmek icin ESC basiniz."; rlutil::setColor(7);
+				rlutil::locate(40,15); rlutil::setColor(4); cout << "It will be added as soon as possible!"<<endl; rlutil::setColor(7);
+				rlutil::setColor(2); rlutil::locate(70,29); cout << "Ana menuye donmek icin ESC basiniz."; rlutil::setColor(7);
 				key = rlutil::getkey();
-				if (key == rlutil::KEY_ESCAPE) { //Exit from Gamemode 2 with ESC
+				if(key==rlutil::KEY_ESCAPE){ //Exit from Gamemode 2 with ESC
 					rlutil::cls();
 					menu();
-				}
+				}  
 			}// End of Gamemode 2
 		} // End of Choose Gamemode 
-		else if (choice == 2) {  // About 
+		else if(choice==2){  // About 
 			rlutil::setColor(4); rlutil::locate(50, 1); cout << "Oyun Amaci:" << endl; rlutil::setColor(7);
 			cout << "   Dunyaya karsi gelen yaratik ve astroid saldirisina karsi tek umut sensin! Uzay gemine atla ve evini savun!!" << endl;
 			rlutil::setColor(4); rlutil::locate(48, 4); cout << "Oyun Kontrolleri" << endl; rlutil::setColor(7);
-			rlutil::setColor(2); rlutil::locate(47, 6); cout << "Klavye yon tuslari  " << endl; rlutil::setColor(7);
-			rlutil::locate(44, 8); cout << "Yukari ok tusu ile yukari";
-			rlutil::locate(45, 9); cout << "Asagi ok tusu ile asagi";
-			rlutil::locate(17, 9); cout << "Sol ok tusu ile sola";
-			rlutil::locate(77, 9); cout << "Sag ok tusu ile saga" << endl;
-			rlutil::setColor(2);	rlutil::locate(51, 11); cout << "Enter Tusu"; rlutil::setColor(7);
-			rlutil::locate(18, 13); cout << "Enter Tusuna bastiginizda mortari ateslemek istediginiz kordinatlari giriniz. ";
-			rlutil::locate(21, 14); cout << "Mortar girdiginiz kordinatlara otomatik olarak bir fuze yollayacaktir.";
-			rlutil::setColor(2);	rlutil::locate(51, 16); cout << "Space  Tusu"; rlutil::setColor(7);
-			rlutil::locate(15, 18); cout << "Space tusu ile 1 mermi atesleyebilirsiniz.Basili tutarsaniz seri atis yapabilirsiniz." << endl;
-			rlutil::setColor(4);	rlutil::locate(50, 20); cout << "Benzin Kutulari"; rlutil::setColor(7);
-			rlutil::locate(30, 22); cout << "Ates ettiginiz buyuk asteroitlerden benzin kutulari dusecektir.";
-			rlutil::locate(31, 23);	 cout << "Bu kutulari toplayarak geminize yakit ikmali yapabilirsiniz." << endl;
-			rlutil::setColor(4);	rlutil::locate(52, 25); cout << "Harita Alani"; rlutil::setColor(7);
-			rlutil::locate(15, 27); cout << "Bulundugunuz bolge radyasyon ile cevreli oldugundan radyasyon bolgelerinden(#) uzak durun." << endl;
-			rlutil::setColor(2); rlutil::locate(70, 29); cout << "Hakkinda kismindan cikmak icin ESC basiniz."; rlutil::setColor(7);
-			key = rlutil::getkey();
-			if (key == rlutil::KEY_ESCAPE) {  // Exit from About with escape
+			rlutil::setColor(2); rlutil::locate(47,6); cout << "Klavye yon tuslari  "<<endl; rlutil::setColor(7);
+			rlutil::locate(44,8); cout << "Yukari ok tusu ile yukari";
+			rlutil::locate(45,9); cout << "Asagi ok tusu ile asagi";
+			rlutil::locate(17,9); cout << "Sol ok tusu ile sola";
+			rlutil::locate(77,9); cout << "Sag ok tusu ile saga"<<endl;
+			rlutil::setColor(2);	rlutil::locate(51,11); cout << "Enter Tusu"; rlutil::setColor(7);
+			rlutil::locate(18,13); cout << "Enter Tusuna bastiginizda mortari ateslemek istediginiz kordinatlari giriniz. ";
+			rlutil::locate(21,14); cout << "Mortar girdiginiz kordinatlara otomatik olarak bir fuze yollayacaktir.";
+			rlutil::setColor(2);	rlutil::locate(51,16); cout << "Space  Tusu"; rlutil::setColor(7);
+			rlutil::locate(15,18); cout << "Space tusu ile 1 mermi atesleyebilirsiniz.Basili tutarsaniz seri atis yapabilirsiniz."<<endl;
+			rlutil::setColor(4);	rlutil::locate(50,20); cout << "Benzin Kutulari"; rlutil::setColor(7);
+			rlutil::locate(30,22); cout << "Ates ettiginiz buyuk asteroitlerden benzin kutulari dusecektir.";
+			rlutil::locate(31,23);	 cout<< "Bu kutulari toplayarak geminize yakit ikmali yapabilirsiniz."<<endl;
+			rlutil::setColor(4);	rlutil::locate(52,25); cout << "Harita Alani"; rlutil::setColor(7);
+			rlutil::locate(15,27); cout << "Bulundugunuz bolge radyasyon ile cevreli oldugundan radyasyon bolgelerinden(#) uzak durun."<<endl;
+			rlutil::setColor(2); rlutil::locate(70,29); cout << "Hakkinda kismindan cikmak icin ESC basiniz."; rlutil::setColor(7);
+			key = rlutil::getkey();  
+			if(key==rlutil::KEY_ESCAPE){  // Exit from About with escape
 				rlutil::cls();
 				menu();
 			}
 		}  // End of About
-		else if (choice == 3) {   // Exit
-			rlutil::setBackgroundColor(0);
+		else if(choice==3){   // Exit
+			rlutil::locate(50,15); cout << "THANKS FOR PLAYING!";
 			rlutil::setColor(2);
-			rlutil::locate(50, 15); cout << "THANKS FOR PLAYING!";
+			rlutil::locate(80,27); cout << "Press enter to exit!";
+			rlutil::setColor(7);
 			break;
 		}   // End of Exit
 
