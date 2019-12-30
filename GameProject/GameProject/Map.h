@@ -21,6 +21,7 @@ public:
 	void setWalls();
 	int hitWall(int, int);
 	int hitAsteroid(Asteroit&, int, int);
+	void MortarFire(Asteroit&, int, int);
 private:
 	int row;
 	int col;
