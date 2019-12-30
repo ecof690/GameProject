@@ -14,30 +14,44 @@ locy=10;   // y location of mortar
 
 void Mortar::fire(int a , int b , int c) {
 	int i,hit;
-	
-	rlutil::locate(70,30);
-	cout << "Mortar fired to "<< locx <<","<<locy ;
 
 
-	for(i=0;i<3;i++){
-		rlutil::msleep(500);
-		rlutil::setColor(4);
-		rlutil::locate(locx,locy);
-		cout << (char)220;
-		rlutil::msleep(500);
-		rlutil::locate(locx,locy);
-		cout << " ";		
+
+	if(locx <= 1 || locx>=118 || locy<=1 || locy>=29){
+		for(i=0;i<3;i++){
+			rlutil::locate(80,30);
+			cout << "Your coordinates not in the safe Area!!" ;
+			rlutil::msleep(500);
+			rlutil::locate(70,30);
+			cout << "                                                    ";
+			rlutil::msleep(500);
+		}
 	}
-	rlutil::setColor(7);
-	hit= hitWall(locx,locy);
+	else{
+		rlutil::locate(70,30);
+		cout << "                                                    ";
+		rlutil::locate(75,30);
+		cout << "Mortar fired to "<< locx <<","<<locy ;
+		for(i=0;i<3;i++){
+			rlutil::msleep(500);
+			rlutil::setColor(4);
+			rlutil::locate(locx,locy);
+			cout << (char)220;
+			rlutil::msleep(500);
+			rlutil::locate(locx,locy);
+			cout << " ";		
+		}
+		rlutil::setColor(7);
+		hit= hitWall(locx,locy);
 
-	if(hit == -1){
-	rlutil::locate(locx , locy);
-	cout << " "; 
+		if(hit == -1){
+			rlutil::locate(locx , locy);
+			cout << " "; 
+		}
+
+		rlutil::locate(70,30);
+		cout << "                                  ";
 	}
-
-	rlutil::locate(70,30);
-	cout << "                                  ";
 
 }
 
