@@ -222,6 +222,8 @@ void Map::print() {
 				cout << "                                  ";
 				mor.setLoc(morx, mory);
 				mor.fire(j, morx, mory);
+				for (i_c = 0; i_c < (num0 + num1 + num2); i_c++) // If mortar hit the Asteroit delete this Asteroit
+				MortarFire(*A[i_c],morx,mory);
 			}
 			else if (k == rlutil::KEY_ESCAPE) { rlutil::locate(76, 30); cout << "Thanks for playing!!"; break; menu.menu(); } // End of the game
 
@@ -385,4 +387,15 @@ int Map::hitAsteroid(Asteroit& a, int x, int y) {
 	}
 	else
 		return 0;
+}
+
+void Map::MortarFire(Asteroit& a, int x, int y){
+
+	int *arr;
+	arr = a.getCoordinates();
+	if (arr[0] == x && arr[1] == y) {
+		a.setCor(-1, -1);
+	}
+
+
 }
