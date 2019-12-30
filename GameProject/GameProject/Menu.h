@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Menu{
+class Menu {
 private:
 	string lang;
 public:

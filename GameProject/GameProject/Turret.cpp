@@ -1,6 +1,5 @@
 #include "Turret.h"
 
-
 Turret::Turret() {
 	dist = 10;  // fire distance
 }
@@ -111,14 +110,12 @@ int Turret::hitWall(int x, int y) {
 
 }
 
-int Turret::hitAsteroit(int j ,int x ,int y,Asteroit& a){  //control the gun hit the asteriot
+int Turret::hitAsteroit(int j, int x, int y, Asteroit& a) {  //control the gun hit the asteriot
 
 	int i = 0, ax, ay, hit = -1;
 
 	int *arr;
-	
 
-	
 
 	if (j == rlutil::KEY_LEFT) {  // If spaceship going left fire to the left.
 		rlutil::hidecursor();
@@ -129,7 +126,7 @@ int Turret::hitAsteroit(int j ,int x ,int y,Asteroit& a){  //control the gun hit
 			if (i == dist)
 				break;
 			if (arr[0] == ax && arr[1] == ay) {
-				a.setCor(-1,-1);
+				a.setCor(-1, -1);
 				return -1;
 			}
 			i++;
@@ -144,7 +141,7 @@ int Turret::hitAsteroit(int j ,int x ,int y,Asteroit& a){  //control the gun hit
 			if (i == dist)
 				break;
 			if (arr[0] == ax && arr[1] == ay) {
-				a.setCor(-1,-1);
+				a.setCor(-1, -1);
 				return -1;
 			}
 			i++;
@@ -154,12 +151,12 @@ int Turret::hitAsteroit(int j ,int x ,int y,Asteroit& a){  //control the gun hit
 		rlutil::hidecursor();
 		while (true) {
 			ax = x;
-			ay = y-i;
+			ay = y - i;
 			arr = a.getCoordinates();
 			if (i == dist)
 				break;
 			if (arr[0] == ax && arr[1] == ay) {
-				a.setCor(-1,-1);
+				a.setCor(-1, -1);
 				return -1;
 			}
 			i++;
@@ -169,18 +166,18 @@ int Turret::hitAsteroit(int j ,int x ,int y,Asteroit& a){  //control the gun hit
 		rlutil::hidecursor();
 		while (true) {
 			ax = x;
-			ay = y+i;
+			ay = y + i;
 			arr = a.getCoordinates();
 			if (i == dist)
 				break;
 			if (arr[0] == ax && arr[1] == ay) {
-				a.setCor(-1,-1);
+				a.setCor(-1, -1);
 				return -1;
 			}
 			i++;
 		}
 	}
-	
+
 
 
 }
