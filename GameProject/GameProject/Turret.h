@@ -11,9 +11,6 @@ public:
         int  hitAsteroit(int , int ,int,Asteroit&);
 private:
 	int dist;
-
-
-
 };
 
 

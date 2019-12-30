@@ -55,7 +55,7 @@ void Map::print() {
 	Turret g;
 	Mortar mor;
 	Menu menu;
-	int collision, j, hit = -1, rad, i, morx, mory;
+	int collision, j, temp, temp33 = 0, temp34 = 0, hit = -1, rad, i, morx, mory;
 	int methel = 0;
 
 
@@ -67,7 +67,15 @@ void Map::print() {
 
 
 			if (k == rlutil::KEY_LEFT) {
-				--x; gotoxy(x, y); rlutil::setColor(2);  cout << '<'; rlutil::setColor(7); fuel--;  rlutil::locate(45, 30); cout << "Fuel : " << fuel << " "; j = k;
+				--x; gotoxy(x, y);
+				rlutil::setColor(2);
+				cout << '<';
+				rlutil::setColor(7);
+				fuel--;
+				vu.setFuel(fuel);
+				rlutil::locate(45, 30);
+				cout << "Fuel : " << fuel << " ";
+				j = k;
 				rlutil::locate(60, 30); cout << "Armor : " << armor << " ";
 				for (i_c = 0; i_c < (num0 + num1 + num2); i_c++) {
 					collision = hitAsteroid(*A[i_c], x, y);
@@ -75,6 +83,13 @@ void Map::print() {
 						armor -= collision;
 						vu.setArmor(armor);
 						rlutil::locate(60, 30); cout << "Armor : " << armor << " ";
+					}
+
+					if (A[i_c]->fuel_x == x && A[i_c]->fuel_y == y) {
+						fuel += 30;
+						vu.setFuel(fuel);
+						A[i_c]->fuel_x = -1;
+						A[i_c]->fuel_y = -1;
 					}
 				}
 				hit = hitWall(x, y);
@@ -82,7 +97,15 @@ void Map::print() {
 					x = hit;
 			}
 			else if (k == rlutil::KEY_RIGHT) {
-				++x; rad = 0; gotoxy(x, y); rlutil::setColor(2);  cout << '>'; rlutil::setColor(7); fuel--; rlutil::locate(45, 30); cout << "Fuel : " << fuel << " "; j = k;
+				++x;
+				rad = 0; gotoxy(x, y);
+				rlutil::setColor(2);
+				cout << '>';
+				rlutil::setColor(7);
+				fuel--; vu.setFuel(fuel);
+				rlutil::locate(45, 30);
+				cout << "Fuel : " << fuel << " ";
+				j = k;
 				rlutil::locate(60, 30); cout << "Armor : " << armor << " ";
 				for (i_c = 0; i_c < (num0 + num1 + num2); i_c++) {
 					collision = hitAsteroid(*A[i_c], x, y);
@@ -91,13 +114,29 @@ void Map::print() {
 						vu.setArmor(armor);
 						rlutil::locate(60, 30); cout << "Armor : " << armor << " ";
 					}
+
+					if (A[i_c]->fuel_x == x && A[i_c]->fuel_y == y) {
+						fuel += 30;
+						vu.setFuel(fuel);
+						A[i_c]->fuel_x = -1;
+						A[i_c]->fuel_y = -1;
+					}
 				}
 				hit = hitWall(x, y);
 				if (hit != -1)
 					x = hit;
 			}  // Turn Right
 			else if (k == rlutil::KEY_UP) {
-				--y;  gotoxy(x, y); rlutil::setColor(2);  cout << '^'; rlutil::setColor(7); fuel--; rlutil::locate(45, 30); cout << "Fuel : " << fuel << " "; j = k;
+				--y;
+				gotoxy(x, y);
+				rlutil::setColor(2);
+				cout << '^';
+				rlutil::setColor(7);
+				fuel--;
+				vu.setFuel(fuel);
+				rlutil::locate(45, 30);
+				cout << "Fuel : " << fuel << " ";
+				j = k;
 				rlutil::locate(60, 30); cout << "Armor : " << armor << " ";
 				for (i_c = 0; i_c < (num0 + num1 + num2); i_c++) {
 					collision = hitAsteroid(*A[i_c], x, y);
@@ -105,6 +144,13 @@ void Map::print() {
 						armor -= collision;
 						vu.setArmor(armor);
 						rlutil::locate(60, 30); cout << "Armor : " << armor << " ";
+					}
+
+					if (A[i_c]->fuel_x == x && A[i_c]->fuel_y == y) {
+						fuel += 30;
+						vu.setFuel(fuel);
+						A[i_c]->fuel_x = -1;
+						A[i_c]->fuel_y = -1;
 					}
 				}
 				hit = hitWall(x, y);
@@ -117,8 +163,10 @@ void Map::print() {
 				cout << 'v';
 				rlutil::setColor(7);
 				fuel--;
+				vu.setFuel(fuel);
 				rlutil::locate(45, 30);
-				cout << "Fuel : " << fuel << " "; j = k;
+				cout << "Fuel : " << fuel << " ";
+				j = k;
 				rlutil::locate(60, 30); cout << "Armor : " << armor << " ";  //show the armor amount
 				for (i_c = 0; i_c < (num0 + num1 + num2); i_c++) {
 					collision = hitAsteroid(*A[i_c], x, y);
@@ -126,6 +174,13 @@ void Map::print() {
 						armor -= collision;
 						vu.setArmor(armor);
 						rlutil::locate(60, 30); cout << "Armor : " << armor << " ";
+					}
+
+					if (A[i_c]->fuel_x == x && A[i_c]->fuel_y == y) {
+						fuel += 30;
+						vu.setFuel(fuel);
+						A[i_c]->fuel_x = -1;
+						A[i_c]->fuel_y = -1;
 					}
 				}
 				hit = hitWall(x, y);
@@ -137,12 +192,27 @@ void Map::print() {
 				int didhit;
 				for (i_c = 0; i_c < (num0 + num1 + num2); i_c++) {
 					didhit = g.hitAsteroit(j, x, y, *A[i_c]);
-					if (didhit == -1)
+					if (didhit == -1) {
+						temp33 = 0;
 						score += 10;
+					}
+					else if (didhit == 0) {
+						temp33 = 1;
+						temp34 = i_c;
+					}
 				}
 				rlutil::locate(100, 30);
 				cout << "Score: " << score;
 				g.fire(j, x, y);
+				if (temp33) {
+					A[temp34]->print();
+				}
+				else {
+					if (A[temp34]->fuel_x != -1) {
+						A[temp34]->printFuel();
+					}
+				}
+
 			}
 			else     if (k == rlutil::KEY_ENTER) { // activate mortar
 				rlutil::locate(70, 30);
@@ -192,7 +262,6 @@ void Map::print() {
 				rlutil::msleep(5000);
 				break;
 			}
-
 		} // end of kbhit if
 
 	} // end of while 

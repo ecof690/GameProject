@@ -242,7 +242,7 @@ void Menu::menu() {
 		rlutil::setColor(4);
 		rlutil::locate(50, 14); cout << "Exit" << endl;
 		rlutil::setColor(8);
-		rlutil::locate(20, 24);
+		rlutil::locate(30, 24);
 		cout << "Use arrow keys, and press enter to choice." << endl;
 		rlutil::setColor(7);
 		while (true) {  // Main menu while
@@ -414,6 +414,8 @@ void Menu::menu() {
 			}
 		}  // End of About
 		else if (choice == 3) {   // Exit
+			rlutil::setBackgroundColor(0);
+			rlutil::setColor(2);
 			rlutil::locate(50, 15); cout << "THANKS FOR PLAYING!";
 			break;
 		}   // End of Exit

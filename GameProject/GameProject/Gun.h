@@ -10,7 +10,7 @@ public:
 	Gun();
 	virtual void fire(int, int, int) = 0;
 	virtual int hitWall(int, int) = 0;
-private:
-	int dist;
+protected:
+	int damage;
 };
 

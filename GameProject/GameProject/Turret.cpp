@@ -2,6 +2,7 @@
 
 Turret::Turret() {
 	dist = 10;  // fire distance
+	damage = 10; //Fire damage of turret.
 }
 
 void Turret::fire(int j, int x, int y) {
@@ -112,7 +113,7 @@ int Turret::hitWall(int x, int y) {
 
 int Turret::hitAsteroit(int j, int x, int y, Asteroit& a) {  //control the gun hit the asteriot
 
-	int i = 0, ax, ay, hit = -1;
+	int i = 0, ax, ay, hit = -1, random_x;
 
 	int *arr;
 
@@ -126,13 +127,23 @@ int Turret::hitAsteroit(int j, int x, int y, Asteroit& a) {  //control the gun h
 			if (i == dist)
 				break;
 			if (arr[0] == ax && arr[1] == ay) {
-				a.setCor(-1, -1);
-				return -1;
+				a.setHealth(damage);
+				if (a.getHealth() <= 0) {
+					random_x = rand() % 2;
+					if (random_x == 1) {
+						a.createFuel();
+					}
+					a.setCor(-1, -1);
+					return -1;
+				}
+				else {
+					return 0;
+				}
 			}
 			i++;
 		}
 	}
-	else if (j == rlutil::KEY_RIGHT) { // If spaceship going right fire to the left.
+	else if (j == rlutil::KEY_RIGHT) { // If spaceship going right fire to the right.
 		rlutil::hidecursor();
 		while (true) {
 			ax = x + i;
@@ -141,13 +152,23 @@ int Turret::hitAsteroit(int j, int x, int y, Asteroit& a) {  //control the gun h
 			if (i == dist)
 				break;
 			if (arr[0] == ax && arr[1] == ay) {
-				a.setCor(-1, -1);
-				return -1;
+				a.setHealth(damage);
+				if (a.getHealth() <= 0) {
+					random_x = rand() % 2;
+					if (random_x == 1) {
+						a.createFuel();
+					}
+					a.setCor(-1, -1);
+					return -1;
+				}
+				else {
+					return 0;
+				}
 			}
 			i++;
 		}
 	}
-	else if (j == rlutil::KEY_UP) { // If spaceship going up fire to the left.
+	else if (j == rlutil::KEY_UP) { // If spaceship going up fire to the up.
 		rlutil::hidecursor();
 		while (true) {
 			ax = x;
@@ -156,13 +177,23 @@ int Turret::hitAsteroit(int j, int x, int y, Asteroit& a) {  //control the gun h
 			if (i == dist)
 				break;
 			if (arr[0] == ax && arr[1] == ay) {
-				a.setCor(-1, -1);
-				return -1;
+				a.setHealth(damage);
+				if (a.getHealth() <= 0) {
+					random_x = rand() % 2;
+					if (random_x == 1) {
+						a.createFuel();
+					}
+					a.setCor(-1, -1);
+					return -1;
+				}
+				else {
+					return 0;
+				}
 			}
 			i++;
 		}
 	}
-	else if (j == rlutil::KEY_DOWN) { // If spaceship going down fire to the left.
+	else if (j == rlutil::KEY_DOWN) { // If spaceship going down fire to the down.
 		rlutil::hidecursor();
 		while (true) {
 			ax = x;
@@ -171,8 +202,18 @@ int Turret::hitAsteroit(int j, int x, int y, Asteroit& a) {  //control the gun h
 			if (i == dist)
 				break;
 			if (arr[0] == ax && arr[1] == ay) {
-				a.setCor(-1, -1);
-				return -1;
+				a.setHealth(damage);
+				if (a.getHealth() <= 0) {
+					random_x = rand() % 2;
+					if (random_x == 1) {
+						a.createFuel();
+					}
+					a.setCor(-1, -1);
+					return -1;
+				}
+				else {
+					return 0;
+				}
 			}
 			i++;
 		}
