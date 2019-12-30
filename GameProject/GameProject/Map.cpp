@@ -264,6 +264,26 @@ void Map::print() {
 				rlutil::msleep(5000);
 				break;
 			}
+			
+			int* fin;    // Control does gamer finish the game (destroy all the asteroits)
+			int fincount=0;
+			for(i=0;i<num0+num1+num2;i++){
+				fin=A[i]->getCoordinates();
+				if(fin[0] == -1 && fin[1] == -1)
+					fincount++;
+				if(fincount == (num0+num1+num2)){
+					rlutil::locate(60,15);
+					cout << "Congrats! You destroy all asteroits.";
+					rlutil::locate(75, 27);
+					cout << "Wait! You will automaticly direct to menu." << endl;
+					rlutil::msleep(2000);
+					menu.menu();
+					break;
+
+				}
+
+			}
+			
 		} // end of kbhit if
 
 	} // end of while 
