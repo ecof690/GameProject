@@ -415,6 +415,9 @@ void Map::MortarFire(Asteroit& a, int x, int y){
 	arr = a.getCoordinates();
 	if (arr[0] == x && arr[1] == y) {
 		a.setCor(-1, -1);
+		score+=10;
+		rlutil::locate(100, 30);
+		cout << "Score: " << score;
 	}
 
 
