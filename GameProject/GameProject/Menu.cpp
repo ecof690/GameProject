@@ -394,9 +394,9 @@ void Menu::menu() {
 			}// End of Gamemode 2
 		} // End of Choose Gamemode 
 		else if(choice==2){  // About 
-			rlutil::setColor(4); rlutil::locate(50, 1); cout << "Game Purpose:" << endl; rlutil::setColor(7);
+			rlutil::setColor(4); rlutil::locate(48, 1); cout << "GAME PURPOSE" << endl; rlutil::setColor(7);
 			cout << "You are the last hope for the aliens and asteroids attacks to the World. Get in to your spaceship and defend your HOME!!" << endl;
-			rlutil::setColor(4); rlutil::locate(48, 4); cout << "Game Controls" << endl; rlutil::setColor(7);
+			rlutil::setColor(4); rlutil::locate(48, 4); cout << "GAME CONTROLS" << endl; rlutil::setColor(7);
 			rlutil::setColor(2); rlutil::locate(47,6); cout << "Keyboard Controls "<<endl; rlutil::setColor(7);
 			rlutil::locate(44,8); cout << "Up arrow key for go up";
 			rlutil::locate(43,9); cout << "Down arrow key for go down";
@@ -407,9 +407,9 @@ void Menu::menu() {
 			rlutil::locate(38,14); cout << "Mortar will shoot these coordinates.";
 			rlutil::setColor(2);	rlutil::locate(51,16); cout << "Space  Key"; rlutil::setColor(7);
 			rlutil::locate(15,18); cout << "You can shoot 1 bullet when you press space. If you press and hold you can shoot continuously. "<<endl;
-			rlutil::setColor(4);	rlutil::locate(52,20); cout << "Map Border"; rlutil::setColor(7);
+			rlutil::setColor(4);	rlutil::locate(48,20); cout << "MAP BORDER"; rlutil::setColor(7);
 			rlutil::locate(19,22); cout << "You need to stay away from radiation area (#) or you may die from radiation."<<endl;
-			rlutil::setColor(4);	rlutil::locate(55,24); cout << "Asteroits"; rlutil::setColor(7);
+			rlutil::setColor(4);	rlutil::locate(55,24); cout << "ASTEROITS"; rlutil::setColor(7);
 			rlutil::setColor(4);	rlutil::locate(20,26); cout << "Red Asteroit"; rlutil::setColor(7);
 			rlutil::setColor(2);	rlutil::locate(54,26); cout << "Green Asteroit"; rlutil::setColor(7);
 			rlutil::setColor(6);	rlutil::locate(90,26); cout << "Yellow Asteroit"; rlutil::setColor(7);
@@ -425,7 +425,7 @@ void Menu::menu() {
 			rlutil::locate(25,29); cout << "10 Hp"<<endl;
 			rlutil::locate(59,29); cout << "20 Hp"<<endl;
 			rlutil::locate(95,29); cout << "30 Hp"<<endl;
-			rlutil::setColor(2); rlutil::locate(70,30); cout << "Hakkinda kismindan cikmak icin ESC basiniz."; rlutil::setColor(7);
+			rlutil::setColor(2); rlutil::locate(80,30); cout << "To exit 'About' part, press ESC."; rlutil::setColor(7);
 			key = rlutil::getkey();  
 			if(key==rlutil::KEY_ESCAPE){  // Exit from About with escape
 				rlutil::cls();

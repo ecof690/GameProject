@@ -42,14 +42,14 @@ void Map::print() {
 	//..
 
 
-	vu.setFuel(100);
+
 	vu.setArmor(100);
 	fuel = vu.getFuel();
 	armor = vu.getArmor();
-	coin = vu.getCoin();
+	//coin = vu.getCoin(); -> 	//This feature will be added later.
 	rlutil::locate(45, 30); cout << "Fuel : " << fuel; // show the first fuel amount
 	rlutil::locate(60, 30); cout << "Armor : " << armor; // show the first armor amount
-	rlutil::locate(75, 30); cout << "Coin : " << coin; // show the first armor amount
+	//rlutil::locate(75, 30); cout << "Coin : " << coin; // show the first armor amount ->	//This feature will be added later.
 
 	//Spaceship Move.
 	Turret g;
@@ -223,7 +223,7 @@ void Map::print() {
 				mor.setLoc(morx, mory);
 				mor.fire(j, morx, mory);
 				for (i_c = 0; i_c < (num0 + num1 + num2); i_c++) // If mortar hit the Asteroit delete this Asteroit
-				MortarFire(*A[i_c],morx,mory);
+					MortarFire(*A[i_c], morx, mory);
 			}
 			else if (k == rlutil::KEY_ESCAPE) { rlutil::locate(76, 30); cout << "Thanks for playing!!"; break; menu.menu(); } // End of the game
 
@@ -237,7 +237,7 @@ void Map::print() {
 				}
 				rlutil::cls();
 				rlutil::locate(45, 15);
-				cout << "Your score is: " << score << endl;
+				cout << "Your score is : " << score << endl;
 				rlutil::setColor(2);
 				rlutil::locate(75, 27);
 				cout << "Wait! You will automatically direct to menu." << endl;
@@ -256,34 +256,38 @@ void Map::print() {
 				}
 				rlutil::cls();
 				rlutil::locate(45, 15);
-				cout << "Your score is: " << score << endl;
+				cout << "Your score is : " << score << endl;
 				rlutil::setColor(2);
 				rlutil::locate(75, 27);
-				cout << "Wait! You will automaticly direct to menu." << endl;
+				cout << "Wait! You will automatically direct to menu." << endl;
 				rlutil::setColor(7);
 				rlutil::msleep(5000);
 				break;
 			}
-			
+
 			int* fin;    // Control does gamer finish the game (destroy all the asteroits)
-			int fincount=0;
-			for(i=0;i<num0+num1+num2;i++){
-				fin=A[i]->getCoordinates();
-				if(fin[0] == -1 && fin[1] == -1)
+			int fincount = 0;
+			for (i = 0; i < num0 + num1 + num2; i++) {
+				fin = A[i]->getCoordinates();
+				if (fin[0] == -1 && fin[1] == -1)
 					fincount++;
-				if(fincount == (num0+num1+num2)){
-					rlutil::locate(60,15);
+				if (fincount == (num0 + num1 + num2)) {
+					rlutil::locate(60, 15);
 					cout << "Congrats! You destroy all asteroits.";
+					rlutil::msleep(1000);
+					rlutil::locate(45, 20);
+					cout << "Your score is : " << score << endl;
+					rlutil::setColor(2);
 					rlutil::locate(75, 27);
 					cout << "Wait! You will automaticly direct to menu." << endl;
-					rlutil::msleep(2000);
+					rlutil::msleep(4000);
 					menu.menu();
 					break;
 
 				}
 
 			}
-			
+
 		} // end of kbhit if
 
 	} // end of while 
@@ -407,18 +411,17 @@ int Map::hitAsteroid(Asteroit& a, int x, int y) {
 	}
 	else
 		return 0;
-}
+}//End of method.
 
-void Map::MortarFire(Asteroit& a, int x, int y){
+void Map::MortarFire(Asteroit& a, int x, int y) {
 
 	int *arr;
 	arr = a.getCoordinates();
 	if (arr[0] == x && arr[1] == y) {
 		a.setCor(-1, -1);
-		score+=10;
+		score += 10;
 		rlutil::locate(100, 30);
 		cout << "Score: " << score;
 	}
 
-
-}
+}//End of method.

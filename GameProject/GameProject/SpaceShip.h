@@ -14,6 +14,6 @@ public:
 protected:
 	int fuel;
 	int armor;
-	int coin;
+	int coin;	//This feature will be added later.
 };
 
