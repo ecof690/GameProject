@@ -394,21 +394,21 @@ void Menu::menu() {
 			}// End of Gamemode 2
 		} // End of Choose Gamemode 
 		else if(choice==2){  // About 
-			rlutil::setColor(4); rlutil::locate(50, 1); cout << "Oyun Amaci:" << endl; rlutil::setColor(7);
-			cout << "   Dunyaya karsi gelen yaratik ve astroid saldirisina karsi tek umut sensin! Uzay gemine atla ve evini savun!!" << endl;
-			rlutil::setColor(4); rlutil::locate(48, 4); cout << "Oyun Kontrolleri" << endl; rlutil::setColor(7);
-			rlutil::setColor(2); rlutil::locate(47,6); cout << "Klavye yon tuslari  "<<endl; rlutil::setColor(7);
-			rlutil::locate(44,8); cout << "Yukari ok tusu ile yukari";
-			rlutil::locate(45,9); cout << "Asagi ok tusu ile asagi";
-			rlutil::locate(17,9); cout << "Sol ok tusu ile sola";
-			rlutil::locate(77,9); cout << "Sag ok tusu ile saga"<<endl;
-			rlutil::setColor(2);	rlutil::locate(51,11); cout << "Enter Tusu"; rlutil::setColor(7);
-			rlutil::locate(18,13); cout << "Enter Tusuna bastiginizda mortari ateslemek istediginiz kordinatlari giriniz. ";
-			rlutil::locate(21,14); cout << "Mortar girdiginiz kordinatlara otomatik olarak bir fuze yollayacaktir.";
-			rlutil::setColor(2);	rlutil::locate(51,16); cout << "Space  Tusu"; rlutil::setColor(7);
-			rlutil::locate(15,18); cout << "Space tusu ile 1 mermi atesleyebilirsiniz.Basili tutarsaniz seri atis yapabilirsiniz."<<endl;
-			rlutil::setColor(4);	rlutil::locate(52,20); cout << "Harita Alani"; rlutil::setColor(7);
-			rlutil::locate(15,22); cout << "Bulundugunuz bolge radyasyon ile cevreli oldugundan radyasyon bolgelerinden(#) uzak durun."<<endl;
+			rlutil::setColor(4); rlutil::locate(50, 1); cout << "Game Purpose:" << endl; rlutil::setColor(7);
+			cout << "You are the last hope for the aliens and asteroids attacks to the World. Get in to your spaceship and defend your HOME!!" << endl;
+			rlutil::setColor(4); rlutil::locate(48, 4); cout << "Game Controls" << endl; rlutil::setColor(7);
+			rlutil::setColor(2); rlutil::locate(47,6); cout << "Keyboard Controls "<<endl; rlutil::setColor(7);
+			rlutil::locate(44,8); cout << "Up arrow key for go up";
+			rlutil::locate(43,9); cout << "Down arrow key for go down";
+			rlutil::locate(10,9); cout << "Left arrow key for go left";
+			rlutil::locate(79,9); cout << "Right arrow key for go right"<<endl;
+			rlutil::setColor(2);	rlutil::locate(51,11); cout << "Enter Key"; rlutil::setColor(7);
+			rlutil::locate(23,13); cout << "When you press enter you need to give coordiantes where you want to fire. ";
+			rlutil::locate(38,14); cout << "Mortar will shoot these coordinates.";
+			rlutil::setColor(2);	rlutil::locate(51,16); cout << "Space  Key"; rlutil::setColor(7);
+			rlutil::locate(15,18); cout << "You can shoot 1 bullet when you press space. If you press and hold you can shoot continuously. "<<endl;
+			rlutil::setColor(4);	rlutil::locate(52,20); cout << "Map Border"; rlutil::setColor(7);
+			rlutil::locate(19,22); cout << "You need to stay away from radiation area (#) or you may die from radiation."<<endl;
 			rlutil::setColor(4);	rlutil::locate(55,24); cout << "Asteroits"; rlutil::setColor(7);
 			rlutil::setColor(4);	rlutil::locate(20,26); cout << "Red Asteroit"; rlutil::setColor(7);
 			rlutil::setColor(2);	rlutil::locate(54,26); cout << "Green Asteroit"; rlutil::setColor(7);
