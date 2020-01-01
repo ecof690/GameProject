@@ -437,7 +437,7 @@ void Menu::menu() {
 			rlutil::setColor(2);
 			rlutil::locate(80,27); cout << "Press enter to exit!";
 			rlutil::setColor(7);
-			break;
+			exit(0);  // stop the program
 		}   // End of Exit
 
 	}  // End of Menu while
