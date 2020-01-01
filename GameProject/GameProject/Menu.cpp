@@ -384,8 +384,8 @@ void Menu::menu() {
 			else if (choice_gamemode == 2) {  // Gamemode 2
 				rlutil::setBackgroundColor(0);
 				rlutil::cls();
-				rlutil::locate(40,15); rlutil::setColor(4); cout << "It will be added as soon as possible!"<<endl; rlutil::setColor(7);
-				rlutil::setColor(2); rlutil::locate(70,29); cout << "Ana menuye donmek icin ESC basiniz."; rlutil::setColor(7);
+				rlutil::locate(40,15); rlutil::setColor(4); cout << "It will be added as soon as possible !"<<endl; rlutil::setColor(7);
+				rlutil::setColor(2); rlutil::locate(70,29); cout << "To return main menu press ESC ."; rlutil::setColor(7);
 				key = rlutil::getkey();
 				if(key==rlutil::KEY_ESCAPE){ //Exit from Gamemode 2 with ESC
 					rlutil::cls();
@@ -409,22 +409,22 @@ void Menu::menu() {
 			rlutil::locate(15,18); cout << "Space tusu ile 1 mermi atesleyebilirsiniz.Basili tutarsaniz seri atis yapabilirsiniz."<<endl;
 			rlutil::setColor(4);	rlutil::locate(52,20); cout << "Harita Alani"; rlutil::setColor(7);
 			rlutil::locate(15,22); cout << "Bulundugunuz bolge radyasyon ile cevreli oldugundan radyasyon bolgelerinden(#) uzak durun."<<endl;
-			rlutil::setColor(4);	rlutil::locate(55,24); cout << "Asteroitler"; rlutil::setColor(7);
-			rlutil::setColor(4);	rlutil::locate(20,26); cout << "Kirmizi Asteroit"; rlutil::setColor(7);
-			rlutil::setColor(2);	rlutil::locate(54,26); cout << "Yesil Asteroit"; rlutil::setColor(7);
-			rlutil::setColor(6);	rlutil::locate(90,26); cout << "Sari Asteroit"; rlutil::setColor(7);
-			rlutil::locate(1,27); cout << "Can: "<<endl;
-			rlutil::locate(1,28); cout << "Benzin Kutusu: "<<endl;
-			rlutil::locate(1,29); cout << "Hasar: "<<endl;
-			rlutil::locate(25,27); cout << "10 (1 vurus)"<<endl;
-			rlutil::locate(59,27); cout << "20 (2 vurus)"<<endl;
-			rlutil::locate(95,27); cout << "30 (3 vurus)"<<endl;
-			rlutil::locate(25,28); cout << "Dusmez"<<endl;
-			rlutil::locate(59,28); cout << "Duser"<<endl;
-			rlutil::locate(95,28); cout << "Duser"<<endl;
-			rlutil::locate(25,29); cout << "10 Can eksiltir."<<endl;
-			rlutil::locate(59,29); cout << "20 Can eksiltir."<<endl;
-			rlutil::locate(95,29); cout << "30 Can eksiltir."<<endl;
+			rlutil::setColor(4);	rlutil::locate(55,24); cout << "Asteroits"; rlutil::setColor(7);
+			rlutil::setColor(4);	rlutil::locate(20,26); cout << "Red Asteroit"; rlutil::setColor(7);
+			rlutil::setColor(2);	rlutil::locate(54,26); cout << "Green Asteroit"; rlutil::setColor(7);
+			rlutil::setColor(6);	rlutil::locate(90,26); cout << "Yellow Asteroit"; rlutil::setColor(7);
+			rlutil::locate(1,27); cout << "Health : "<<endl;
+			rlutil::locate(1,28); cout << "Fuel Can : "<<endl;
+			rlutil::locate(1,29); cout << "Damage : "<<endl;
+			rlutil::locate(25,27); cout << "10 (1 hit)"<<endl;
+			rlutil::locate(59,27); cout << "20 (2 hit)"<<endl;
+			rlutil::locate(95,27); cout << "30 (3 hit)"<<endl;
+			rlutil::locate(25,28); cout << "NOT Drop"<<endl;
+			rlutil::locate(59,28); cout << "Drop"<<endl;
+			rlutil::locate(95,28); cout << "Drop"<<endl;
+			rlutil::locate(25,29); cout << "10 Hp"<<endl;
+			rlutil::locate(59,29); cout << "20 Hp"<<endl;
+			rlutil::locate(95,29); cout << "30 Hp"<<endl;
 			rlutil::setColor(2); rlutil::locate(70,30); cout << "Hakkinda kismindan cikmak icin ESC basiniz."; rlutil::setColor(7);
 			key = rlutil::getkey();  
 			if(key==rlutil::KEY_ESCAPE){  // Exit from About with escape
@@ -449,4 +449,5 @@ void Menu::setlang(string language_choice) {
 		lang = "tur";
 	else if (language_choice == "eng")
 		lang = "eng";
+	//This feature will be added later.
 }//End of set-method.
